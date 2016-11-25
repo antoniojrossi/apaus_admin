@@ -17,6 +17,8 @@ dependencies:
 test:
   override:
     - mix test
+    - mkdir -p $CIRCLE_TEST_REPORTS/exunit
+    - cp _build/test/lib/APPNAME/results.xml $CIRCLE_TEST_REPORTS/exunit
 deployment:
   staging:
     branch: master
