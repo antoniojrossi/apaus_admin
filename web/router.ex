@@ -16,7 +16,7 @@ defmodule ApausAdmin.Router do
   scope "/", ApausAdmin do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/dogs/register", DogController, :register
   end
 
   # Other scopes may use custom stacks.
