@@ -1,7 +1,16 @@
-<form class="ui form" id="register-dog">
-    <div class="field">
-        <label>Nombre</label>
-        <input type="text" name="name">
-    </div>
-    <button class="ui primary button" type="submit">Registrar</button>
+<% success_message = get_flash(@conn, :success) %>
+<%= if success_message do %>
+  <div class="ui success message">
+    <i class="close icon"></i>
+    <div class="header"><%= success_message %></div>
+  </div>
+<% end %>
+
+<form class="ui form" id="register-dog" action="/dogs/register" method="post">
+  <input type="hidden" name="_csrf_token" value="<%= csrf_token(@conn) %>">
+  <div class="field">
+    <label>Nombre</label>
+    <input type="text" name="name">
+  </div>
+  <button class="ui primary button" type="submit">Registrar</button>
 </form>

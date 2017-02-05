@@ -20,5 +20,7 @@ import "phoenix_html"
 
 // import socket from "./socket"
 $(document).ready(function() {
-  
+  $('.message .close').on('click', function() {
+    $(this).closest('.message').transition('fade');
+  });
 });
